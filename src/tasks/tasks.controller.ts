@@ -3,10 +3,7 @@ import { Controller, Get } from '@nestjs/common';
 
 @Controller({})
 export class TaskController {
-  taskService: TasksService;
-  constructor(taskService: TasksService) {
-    this.taskService = taskService;
-  }
+  constructor(private taskService: TasksService) {}
 
   @Get('/tasks')
   getTaskss() {
