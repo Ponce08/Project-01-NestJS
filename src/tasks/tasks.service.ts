@@ -1,12 +1,15 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class TasksService{
-    getTasks(){
-        return ['Yonathan', 'Julieta', 'Santiago']
-    }
+export class TasksService {
+  private tasks: object[] = [];
 
-    postTask(){
-        return 'Creando tarea'
-    }
+  getTasks() {
+    return this.tasks;
+  }
+
+  postTask(task: any) {
+    this.tasks.push(task);
+    return task;
+  }
 }

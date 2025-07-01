@@ -12,8 +12,6 @@ export class TaskController {
 
   @Post('/tasks')
   postTask(@Body() task: any) {
-    console.log(task);
-
-    return this.taskService.postTask();
+    return this.taskService.postTask(task);
   }
 }
