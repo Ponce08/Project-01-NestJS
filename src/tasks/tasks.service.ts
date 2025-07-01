@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
-type Task = {
+export interface Task {
   id: number;
   name: string;
   status: boolean;
-};
+}
 
 @Injectable()
 export class TasksService {
@@ -22,7 +22,7 @@ export class TasksService {
     return taskFound;
   }
 
-  postTask(task: Task) {
+  postTask(task: Task): Task {
     this.tasks.push({
       ...task,
       id: this.tasks.length + 1,
