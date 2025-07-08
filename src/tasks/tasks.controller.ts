@@ -7,8 +7,6 @@ import {
   Param,
   Post,
   Query,
-  UsePipes,
-  ValidationPipe,
 } from '@nestjs/common';
 
 @Controller('/tasks')
@@ -26,11 +24,10 @@ export class TaskController {
   }
 
   @Post()
-  @UsePipes(new ValidationPipe())
   postTask(@Body() task: Task) {
     return this.taskService.postTask(task);
   }
 }
 
 
-// git add . && git commit -m 'project-nestjs-20' && git push
+// git add . && git commit -m 'project-nestjs-21' && git push

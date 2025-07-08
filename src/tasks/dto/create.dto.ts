@@ -1,11 +1,14 @@
-import { IsString, Min } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsString, MinLength } from 'class-validator';
 
 export class Task {
   id: number;
 
   @IsString()
-  @Min(1)
+  @MinLength(1)
+  @IsNotEmpty()
   name: string;
 
+  @IsNotEmpty()
+  @IsBoolean()
   status: boolean;
 }
