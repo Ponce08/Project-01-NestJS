@@ -1,6 +1,15 @@
 import { Task } from '@/tasks/dto/create.dto';
 import { TasksService } from '@/tasks/tasks.service';
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 
 @Controller('/tasks')
 export class TaskController {
@@ -17,7 +26,11 @@ export class TaskController {
   }
 
   @Post()
+  @UsePipes(new ValidationPipe())
   postTask(@Body() task: Task) {
     return this.taskService.postTask(task);
   }
 }
+
+
+// git add . && git commit -m 'project-nestjs-20' && git push
