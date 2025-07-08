@@ -1,10 +1,5 @@
+import { Task } from '@/tasks/dto/create.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
-
-export interface Task {
-  id: number;
-  name: string;
-  status: boolean;
-}
 
 @Injectable()
 export class TasksService {
