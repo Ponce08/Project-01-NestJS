@@ -4,6 +4,7 @@ import {
   HttpCode,
   Param,
   ParseIntPipe,
+  Query,
   Req,
   Res,
 } from '@nestjs/common';
@@ -32,4 +33,10 @@ export class ExampleController {
   getNumber(@Param('num', ParseIntPipe) num: number) {
     return 10 + num;
   }
+
+  @Get('/greet')
+  getObject(@Query() query: { name: string; age: number }) {
+    return `My name is ${query.name} and i'm ${query.age} years old`;
+  }
 }
+// git add . && git commit -m 'project-nestjs-29' && git push
