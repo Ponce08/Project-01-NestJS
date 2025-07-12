@@ -1,3 +1,4 @@
+import { ValidateExamplePipe } from '@/example/pipes/validate-example/validate-example.pipe';
 import {
   Controller,
   Get,
@@ -35,8 +36,8 @@ export class ExampleController {
   }
 
   @Get('/greet')
-  getObject(@Query() query: { name: string; age: number }) {
+  getObject(@Query(ValidateExamplePipe) query: { name: string; age: number }) {
     return `My name is ${query.name} and i'm ${query.age} years old`;
   }
 }
-// git add . && git commit -m 'project-nestjs-29' && git push
+// git add . && git commit -m 'project-nestjs-30' && git push
