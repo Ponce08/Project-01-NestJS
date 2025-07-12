@@ -40,4 +40,4 @@ export class ExampleController {
     return `My name is ${query.name} and i'm ${query.age} years old`;
   }
 }
-// git add . && git commit -m 'project-nestjs-31' && git push
+// git add . && git commit -m 'project-nestjs-32' && git push
