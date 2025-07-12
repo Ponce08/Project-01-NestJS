@@ -1,3 +1,4 @@
+import { AuthGuard } from '@/example/guards/auth/auth.guard';
 import { ValidateExamplePipe } from '@/example/pipes/validate-example/validate-example.pipe';
 import {
   Controller,
@@ -8,6 +9,7 @@ import {
   Query,
   Req,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 
@@ -36,8 +38,9 @@ export class ExampleController {
   }
 
   @Get('/greet')
+  @UseGuards(AuthGuard)
   getObject(@Query(ValidateExamplePipe) query: { name: string; age: number }) {
     return `My name is ${query.name} and i'm ${query.age} years old`;
   }
 }
-// git add . && git commit -m 'project-nestjs-32' && git push
+// git add . && git commit -m 'project-nestjs-33' && git push
